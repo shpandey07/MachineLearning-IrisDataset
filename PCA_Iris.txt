@@ -1,0 +1,53 @@
+PCA: Principal Component Analysis
+It is a dimensionality reduction algorithm.
+PCA using Python(scikit learn)
+
+We are going to use PCA to reduce our 4-dimensional data into 2-dimensional data.
+To use PCA we need to standardized our data.
+PCA is unsupervised learning and is affected by scale.
+Use StandardScaler to help you standardize the dataset’s features onto unit scale (mean = 0 and variance = 1) which is a requirement for the optimal performance of many machine learning algorithms.
+
+We standardized the features not the target
+We are fitting and transforming our features with a mean of 0 and variance 1
+
+Import PCA
+And then making an instance of the PCA class
+pca = PCA(n_components=2)
+Then we are going to fit and transform our features and we get 2-dimensional data with two principal components
+
+Then combine two principal components with the target
+
+
+Plot: Iris-setosa is very different than the other two
+
+Whenever we go from higher dimension to lower we lose some information
+
+
+_____________________________________________________________________________
+
+20_Newsgroup:
+
+This data set is in-built in scikit, so we don’t need to download it explicitly.
+
+Loading the data set: (this might take few minutes, so patience)
+
+from sklearn.datasets import fetch_20newsgroups
+twenty_train = fetch_20newsgroups(subset='train', shuffle=True)
+
+Note: Above, we are only loading the training data. We will load the test data separately later in the example.
+
+twenty_train.target_names #prints all the categories
+print("\n".join(twenty_train.data[0].split("\n")[:3])) #prints first line of the first data file
+
+Text files are actually series of words (ordered). In order to run machine learning algorithms we need to convert the text files into numerical feature vectors. We will be using bag of words model for our example. Briefly, we segment each text file into words (for English splitting by space), and count # of times each word occurs in each document and finally assign each word an integer id. Each unique word in our dictionary will correspond to a feature (descriptive feature).
+
+
+
+
+
+
+
+
+
+
+
